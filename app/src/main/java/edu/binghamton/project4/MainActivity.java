@@ -2,6 +2,8 @@ package edu.binghamton.project4;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,6 +20,16 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.I
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        entries = new ArrayList<>();
+        
+        RecyclerView recyclerView = findViewById(R.id.recycler);
+        adapter = new RecyclerAdapter(this, entries);
+        adapter.setClickListener(this);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.refreshDrawableState();
+
     }
 
     @Override
