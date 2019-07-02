@@ -12,7 +12,6 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements RecyclerAdapter.ItemClickListener {
 
     RecyclerAdapter adapter;
-    TextView topline;
     ArrayList<String> entries;
 
     @Override
@@ -28,11 +27,11 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.I
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
+        return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
+        return true;
     }
 }
