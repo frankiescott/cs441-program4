@@ -50,7 +50,7 @@
             android:gravity="center"
             android:text="B" />
         <SeekBar
-            android:id="@+id/sbm"
+            android:id="@+id/sbb"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
