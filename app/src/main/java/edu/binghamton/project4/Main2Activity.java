@@ -32,13 +32,6 @@ public class Main2Activity extends AppCompatActivity {
         sbb = findViewById(R.id.sbb);
 
         configureSeekBars();
-
-        drawView = new DrawView(this);
-        drawView.setBackgroundColor(Color.LTGRAY);
-        drawView.setLayoutParams(new ViewGroup.LayoutParams(500,500));
-
-        ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 800);
-        addContentView(drawView, lp);
     }
 
     public void configureSeekBars() {
