@@ -7,6 +7,11 @@
     tools:context=".Main2Activity"
     android:orientation="vertical">
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:background="@android:color/black" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

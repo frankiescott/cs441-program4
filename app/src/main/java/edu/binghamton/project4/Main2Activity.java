@@ -1,7 +1,12 @@
 package edu.binghamton.project4;
 
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.SeekBar;
 
 public class Main2Activity extends AppCompatActivity {
@@ -10,6 +15,8 @@ public class Main2Activity extends AppCompatActivity {
     private int b;
     SeekBar sbm;
     SeekBar sbb;
+
+    private int x1, x2, y1, y2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
