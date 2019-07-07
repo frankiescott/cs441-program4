@@ -7,6 +7,8 @@ import android.graphics.Paint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 
 public class Main2Activity extends AppCompatActivity {
@@ -32,9 +34,11 @@ public class Main2Activity extends AppCompatActivity {
         configureSeekBars();
 
         drawView = new DrawView(this);
-        drawView.setBackgroundColor(Color.WHITE);
-        drawView.invalidate();
-        setContentView(drawView);
+        drawView.setBackgroundColor(Color.LTGRAY);
+        drawView.setLayoutParams(new ViewGroup.LayoutParams(500,500));
+
+        ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 800);
+        addContentView(drawView, lp);
     }
 
     public void configureSeekBars() {

@@ -8,27 +8,25 @@ import android.util.AttributeSet;
 import android.view.View;
 
 public class DrawView extends View {
-    Paint paint;
-
-    public void init() {
-        paint = new Paint();
-        paint.setColor(Color.BLACK);
-        paint.setStrokeWidth(1f);
-    }
+    Paint paint = new Paint();
 
     //override both constructors
     public DrawView(Context c) {
         super(c);
-        init();
     }
     public DrawView(Context c, AttributeSet s) {
         super(c, s);
-        init();
+    }
+    public DrawView(Context c, AttributeSet s, int defStyle) {
+        super(c, s, defStyle);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawLine(0, 0, 20, 20, paint);
+
+        paint.setColor(Color.BLACK);
+        paint.setStrokeWidth(3F);
+        canvas.drawLine(0, 0, 200, 200, paint);
     }
 }
