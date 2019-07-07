@@ -17,6 +17,7 @@ public class Main2Activity extends AppCompatActivity {
     SeekBar sbb;
 
     private int x1, x2, y1, y2;
+    private DrawView drawView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,11 @@ public class Main2Activity extends AppCompatActivity {
         sbb = findViewById(R.id.sbb);
 
         configureSeekBars();
+
+        drawView = new DrawView(this);
+        drawView.setBackgroundColor(Color.WHITE);
+        drawView.invalidate();
+        setContentView(drawView);
     }
 
     public void configureSeekBars() {

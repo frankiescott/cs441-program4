@@ -7,10 +7,10 @@
     tools:context=".Main2Activity"
     android:orientation="vertical">
 
-    <View
-        android:layout_width="match_parent"
+    <edu.binghamton.project4.DrawView
+        android:layout_width="fill_parent"
         android:layout_height="500dp"
-        android:background="@android:color/black" />
+        android:name="edu.binghamton.project4.DrawView"/>
 
     <TextView
         android:layout_width="match_parent"
