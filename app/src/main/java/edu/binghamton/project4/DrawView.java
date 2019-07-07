@@ -24,9 +24,24 @@ public class DrawView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
+        setBackgroundColor(Color.LTGRAY);
         paint.setColor(Color.BLACK);
         paint.setStrokeWidth(3F);
         canvas.drawLine(0, 0, 200, 200, paint);
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        int size = 0;
+        int width = getMeasuredWidth();
+        int height = getMeasuredHeight();
+
+        if (width > height) {
+            size = height;
+        } else {
+            size = width;
+        }
+        setMeasuredDimension(size, size);
     }
 }
