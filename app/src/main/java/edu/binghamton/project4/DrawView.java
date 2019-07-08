@@ -38,6 +38,8 @@ public class DrawView extends View {
         coord_paint.setColor(Color.LTGRAY);
         coord_paint.setStrokeWidth(1F);
 
+        m = 0;
+        b = 0;
     }
     //override both constructors
     public DrawView(Context c) {
@@ -56,11 +58,10 @@ public class DrawView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        setBackgroundColor(Color.WHITE);
 
         maxX = canvas.getWidth();
         maxY = canvas.getHeight();
-
-        setBackgroundColor(Color.WHITE);
 
         //y axis
         canvas.drawLine(maxX / 2, maxY, maxX / 2, 0, axis_paint);
@@ -85,7 +86,7 @@ public class DrawView extends View {
             start_y += width_y;
         }
         //line
-        canvas.drawLine(0, maxY, 200, 200, line_paint);
+        canvas.drawLine(maxX / 2, (maxY / 2) - b * width_y, 200, 200, line_paint);
     }
 
     @Override
@@ -103,7 +104,9 @@ public class DrawView extends View {
         setMeasuredDimension(size, size);
     }
 
-    public int calculateY(int m, int b) {
-        return (m * 2) + b;
+    public void updateLine(int m, int b) {
+        this.m = m;
+        this.b = b;
+        this.invalidate(); //redraw
     }
 }

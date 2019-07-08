@@ -30,6 +30,10 @@ public class Main2Activity extends AppCompatActivity {
         b = 1;
         sbm = findViewById(R.id.sbm);
         sbb = findViewById(R.id.sbb);
+        drawView = findViewById(R.id.draw_view);
+
+        sbm.setProgress(0);
+        sbb.setProgress(0);
 
         configureSeekBars();
     }
@@ -48,7 +52,8 @@ public class Main2Activity extends AppCompatActivity {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
+                m = seekBar.getProgress();
+                drawView.updateLine(m, b);
             }
         });
         sbb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -64,7 +69,8 @@ public class Main2Activity extends AppCompatActivity {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
+                b = seekBar.getProgress();
+                drawView.updateLine(m, b);
             }
         });
     }
