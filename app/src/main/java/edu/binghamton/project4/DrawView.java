@@ -25,13 +25,13 @@ public class DrawView extends View {
         coord_paint = new Paint();
 
         line_paint.setColor(Color.BLACK);
-        line_paint.setStrokeWidth(3F);
+        line_paint.setStrokeWidth(4F);
 
         axis_paint.setColor(Color.BLACK);
-        axis_paint.setStrokeWidth(4F);
+        axis_paint.setStrokeWidth(5F);
 
         tick_paint.setColor(Color.BLACK);
-        tick_paint.setStrokeWidth(2F);
+        tick_paint.setStrokeWidth(3F);
 
         coord_paint.setColor(Color.LTGRAY);
         coord_paint.setStrokeWidth(1F);
@@ -69,27 +69,27 @@ public class DrawView extends View {
         this.invalidate(); //redraw
 
         //y axis
-        canvas.drawLine(maxX / 2, maxY, maxX / 2, 0, axis_paint);
+        canvas.drawLine(width_x, maxY, width_x, 0, axis_paint);
         //x axis
-        canvas.drawLine(0,maxY / 2, maxX, maxY / 2, axis_paint);
+        canvas.drawLine(0,width_y, maxX, width_y, axis_paint);
 
         //x axis coordinates
         int start_x = 0;
         for (int i = 0; i <= maxX; ++i) {
-            canvas.drawLine(start_x,(maxY / 2) - 10, start_x, (maxY / 2) + 10, tick_paint);
+            canvas.drawLine(start_x,(width_y) - 10, start_x, (width_y) + 10, tick_paint);
             canvas.drawLine(start_x,0, start_x, maxY, coord_paint);
             start_x += width_x;
         }
         //y axis coordinates
         int start_y = 0;
         for (int i = 0; i <= maxY; ++i) {
-            canvas.drawLine((maxX / 2) - 10,start_y, (maxX / 2) + 10, start_y, tick_paint);
+            canvas.drawLine((width_x) - 10,start_y, (width_x) + 10, start_y, tick_paint);
             canvas.drawLine(0,start_y, maxX, start_y, coord_paint);
             start_y += width_y;
         }
         stopX = 12 * width_x;
-        stopY = (float) (12/m * width_x) + (b * width_x);
-        canvas.drawLine(maxX / 2, (maxY / 2) + b * width_y, stopX, stopY, line_paint);
+        stopY = (float) width_x + (m * 4 * width_x) + (b * width_y);
+        canvas.drawLine(width_x, width_y + b * width_y, stopX, stopY, line_paint);
     }
 
     public void setm(float m) {
