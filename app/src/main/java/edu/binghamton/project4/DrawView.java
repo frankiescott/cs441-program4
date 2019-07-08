@@ -15,8 +15,8 @@ public class DrawView extends View {
 
     int maxX, maxY;
     int width_x, width_y;
-    int x, y;
-    int m, b;
+    float stopX, stopY;
+    float m, b;
 
     public void init() {
         line_paint = new Paint();
@@ -36,12 +36,8 @@ public class DrawView extends View {
         coord_paint.setColor(Color.LTGRAY);
         coord_paint.setStrokeWidth(1F);
 
-        m = 1;
+        m = 1F;
         b = 0;
-
-        x = 6 * width_x;
-        y = (m * x) - (b * width_y);
-
     }
     //override both constructors
     public DrawView(Context c) {
@@ -64,16 +60,15 @@ public class DrawView extends View {
 
         maxX = canvas.getWidth();
         maxY = canvas.getHeight();
-        x = maxX / 2;
-        y = maxY / 2;
+        width_x = maxX / 12; //dividing coordinate plane by 12
+        width_y = maxY / 12;
+
+        this.invalidate(); //redraw
 
         //y axis
         canvas.drawLine(maxX / 2, maxY, maxX / 2, 0, axis_paint);
         //x axis
         canvas.drawLine(0,maxY / 2, maxX, maxY / 2, axis_paint);
-
-        width_x = maxX / 12; //dividing coordinate plane by 12
-        width_y = maxY / 12;
 
         //x axis coordinates
         int start_x = 0;
@@ -89,12 +84,19 @@ public class DrawView extends View {
             canvas.drawLine(0,start_y, maxX, start_y, coord_paint);
             start_y += width_y;
         }
-        //line
-        canvas.drawLine(maxX / 2, (maxY / 2) - b * width_y, 500, 500, line_paint);
+        stopX = 12 * width_x;
+        stopY = (float) (12/m * width_x) + (b * width_x) - maxY;
+        canvas.drawLine(maxX / 2, (maxY / 2) + b * width_y, stopX, stopY, line_paint);
     }
 
-    // y = mx + b
-    // x = (y - b) / m
+    public void setm(float m) {
+        this.m = m;
+        this.invalidate();
+    }
+    public void setb(float b) {
+        this.b = b;
+        this.invalidate();
+    }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -109,13 +111,5 @@ public class DrawView extends View {
             size = width;
         }
         setMeasuredDimension(size, size);
-    }
-
-    public void updateLine(int m, int b) {
-        this.m = m;
-        this.b = b;
-        this.y = (m * 6) - (b * width_y);
-        this.x = 6 * width_x;
-        this.invalidate(); //redraw
     }
 }
