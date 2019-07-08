@@ -67,7 +67,7 @@ public class Main2Activity extends AppCompatActivity {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                b = seekBar.getProgress() * -1;
+                b = seekBar.getProgress() * .25F;
                 drawView.setb(b);
             }
         });

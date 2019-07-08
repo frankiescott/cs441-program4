@@ -56,6 +56,9 @@ public class DrawView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        canvas.translate(0,canvas.getHeight());
+        canvas.scale(1,-1);
+
         setBackgroundColor(Color.WHITE);
 
         maxX = canvas.getWidth();
@@ -85,7 +88,7 @@ public class DrawView extends View {
             start_y += width_y;
         }
         stopX = 12 * width_x;
-        stopY = (float) (12/m * width_x) + (b * width_x) - maxY;
+        stopY = (float) (12/m * width_x) + (b * width_x);
         canvas.drawLine(maxX / 2, (maxY / 2) + b * width_y, stopX, stopY, line_paint);
     }
 
