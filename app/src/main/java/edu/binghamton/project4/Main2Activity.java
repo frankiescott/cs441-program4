@@ -18,7 +18,6 @@ public class Main2Activity extends AppCompatActivity {
     SeekBar sbm;
     SeekBar sbb;
 
-    private int x1, x2, y1, y2;
     private DrawView drawView;
 
     @Override

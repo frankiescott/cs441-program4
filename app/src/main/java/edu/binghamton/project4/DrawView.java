@@ -13,12 +13,10 @@ public class DrawView extends View {
     Paint tick_paint;
     Paint coord_paint;
 
-    int maxX;
-    int maxY;
-    int x;
-    int y;
-    int m;
-    int b;
+    int maxX, maxY;
+    int width_x, width_y;
+    int x, y;
+    int m, b;
 
     public void init() {
         line_paint = new Paint();
@@ -38,8 +36,12 @@ public class DrawView extends View {
         coord_paint.setColor(Color.LTGRAY);
         coord_paint.setStrokeWidth(1F);
 
-        m = 0;
+        m = 1;
         b = 0;
+
+        x = 6 * width_x;
+        y = (m * x) - (b * width_y);
+
     }
     //override both constructors
     public DrawView(Context c) {
@@ -62,14 +64,16 @@ public class DrawView extends View {
 
         maxX = canvas.getWidth();
         maxY = canvas.getHeight();
+        x = maxX / 2;
+        y = maxY / 2;
 
         //y axis
         canvas.drawLine(maxX / 2, maxY, maxX / 2, 0, axis_paint);
         //x axis
         canvas.drawLine(0,maxY / 2, maxX, maxY / 2, axis_paint);
 
-        int width_x = maxX / 12; //dividing coordinate plane by 12
-        int width_y = maxY / 12;
+        width_x = maxX / 12; //dividing coordinate plane by 12
+        width_y = maxY / 12;
 
         //x axis coordinates
         int start_x = 0;
@@ -86,8 +90,11 @@ public class DrawView extends View {
             start_y += width_y;
         }
         //line
-        canvas.drawLine(maxX / 2, (maxY / 2) - b * width_y, 200, 200, line_paint);
+        canvas.drawLine(maxX / 2, (maxY / 2) - b * width_y, 500, 500, line_paint);
     }
+
+    // y = mx + b
+    // x = (y - b) / m
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -107,6 +114,8 @@ public class DrawView extends View {
     public void updateLine(int m, int b) {
         this.m = m;
         this.b = b;
+        this.y = (m * 6) - (b * width_y);
+        this.x = 6 * width_x;
         this.invalidate(); //redraw
     }
 }
