@@ -129,7 +129,6 @@ public class Main2Activity extends AppCompatActivity implements NetResponse {
             this.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    System.out.println("Updating graph");
                     b = Float.parseFloat(updateString);
                     drawView.update(b);
                 }
