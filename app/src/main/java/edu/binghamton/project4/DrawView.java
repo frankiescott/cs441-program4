@@ -52,6 +52,10 @@ public class DrawView extends View {
         super(c, s, defStyle);
         init();
     }
+    public void update(float b) {
+        this.b = b;
+        this.invalidate();
+    }
 
     @Override
     protected void onDraw(Canvas canvas) {

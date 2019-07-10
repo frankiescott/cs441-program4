@@ -108,13 +108,11 @@ public class Main2Activity extends AppCompatActivity implements NetResponse {
         });
     }
 
-    public void netResult(Integer code, JSONArray json)
-    {
+    public void netResult(Integer code, JSONArray json) {
         System.out.println("Got a result from the web");
         updateString = "";
 
-        for (int i = 0; i < json.length(); ++i)
-        {
+        for (int i = 0; i < json.length(); ++i) {
             try {
                 JSONObject item = json.getJSONObject(i);
 
@@ -124,16 +122,16 @@ public class Main2Activity extends AppCompatActivity implements NetResponse {
                     updateString = item.getString("result");
                 }
             }
-            catch (JSONException e)
-            {
+            catch (JSONException e) {
                 updateString = "JSON Error!";
             }
 
             this.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
+                    System.out.println("Updating graph");
                     b = Float.parseFloat(updateString);
-                    drawView.invalidate();
+                    drawView.update(b);
                 }
             });
         }
@@ -162,7 +160,7 @@ public class Main2Activity extends AppCompatActivity implements NetResponse {
 
             } catch (IOException e) {
                 System.out.println("IO exception");
-                //System.out.println(e);
+                System.out.println(e);
                 if (changeListener != null)
                     changeListener.netResult(1, null);
             } catch (JSONException e) {
@@ -216,5 +214,4 @@ public class Main2Activity extends AppCompatActivity implements NetResponse {
             }
         }
     }
-
 }
