@@ -39,14 +39,14 @@ public class Main2Activity extends AppCompatActivity {
         configureSeekBars();
         configureNextButton();
     }
-    
+
     public void configureNextButton() {
         Button nextButton = findViewById(R.id.next);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Main2Activity.this, Main3Activity.class);
-                //pass celsius value to next activity
+                //pass m and b values
                 intent.putExtra("m", m);
                 intent.putExtra("b", b);
                 startActivity(intent);
