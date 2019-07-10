@@ -51,7 +51,7 @@ public class Main2Activity extends AppCompatActivity implements NetResponse {
         drawView = findViewById(R.id.draw_view);
 
         sbm.setProgress(1);
-        sbb.setProgress(10);
+        sbb.setProgress(0);
 
         configureSeekBars();
         configureButton();
