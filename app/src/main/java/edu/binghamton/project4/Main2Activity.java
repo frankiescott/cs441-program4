@@ -21,6 +21,7 @@ public class Main2Activity extends AppCompatActivity {
     SeekBar sbb;
 
     private DrawView drawView;
+    private Button doubleB, doubleM;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +38,26 @@ public class Main2Activity extends AppCompatActivity {
         sbb.setProgress(10);
 
         configureSeekBars();
+        configureButtons();
     }
 
+    public void configureButtons() {
+        doubleM = findViewById(R.id.doublem);
+        doubleB = findViewById(R.id.doubleb);
+
+        doubleM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        doubleB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+    }
     public void configureSeekBars() {
         sbm.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
