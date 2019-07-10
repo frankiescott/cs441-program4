@@ -1,18 +1,10 @@
 package edu.binghamton.project4;
 
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.os.AsyncTask;
-import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.SeekBar;
 
 import org.json.JSONArray;
@@ -45,17 +37,12 @@ public class Main2Activity extends AppCompatActivity implements NetResponse {
     NetTask netTask;
     Main2Activity handle;
     String updateString;
-    String request;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         handle = this;
-        if (android.os.Build.VERSION.SDK_INT > 9) {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
-        }
 
         m = 1;
         b = 0;
