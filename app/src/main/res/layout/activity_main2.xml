@@ -22,12 +22,6 @@
         android:layout_marginRight="25dp"
         android:layout_marginTop="10dp">
         <Button
-            android:id="@+id/doublem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Double m"/>
-        <Button
             android:id="@+id/doubleb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
